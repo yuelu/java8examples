@@ -9,7 +9,6 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
-import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 
 import org.junit.Test;
@@ -63,12 +62,5 @@ public class LocalDateTimeExamples {
         } catch (DateTimeParseException e) {
             System.err.println(e);
         }
-    }
-
-    @Test
-    public void testTruncation() {
-        // truncate to minutes
-        LocalDateTime timePoint = LocalDateTime.parse("2014-04-28T21:45:50").truncatedTo(ChronoUnit.MINUTES);
-        assertThat(timePoint.toString(), is("2014-04-28T21:45"));
     }
 }

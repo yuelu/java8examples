@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 
 import org.junit.Test;
 
@@ -92,5 +93,12 @@ public class TimeUtilExamples {
         assertThat(period.getMonths(), is(1));
         assertThat(period.getDays(), is(3));
         assertThat(period.toTotalMonths(), is(13L));
+    }
+
+    @Test
+    public void testTruncation() {
+        // truncate to minutes
+        LocalDateTime timePoint = LocalDateTime.parse("2014-04-28T21:45:50").truncatedTo(ChronoUnit.MINUTES);
+        assertThat(timePoint.toString(), is("2014-04-28T21:45"));
     }
 }
